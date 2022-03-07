@@ -105,3 +105,4 @@ int main(){
     people information[100]={"0"}, check; //포인터함수로 정보 저장하기,동적할당하기, 비밀번호 암호화하기
     choice(information, check);
 }
+//메롱dddd
