@@ -1,10 +1,10 @@
 #include <iostream>
 #include <math.h>
-#include <Windows.h>
+//#include <Windows.h>
 
 using namespace std;
 
-//¿¤¸®º£ÀÌÅÍ ¸¸µé±â
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 void make(int height, int left, int right, char line[28], char level[28]) {
 	cout << line << endl;
 	for (int i = height; i >= 1; i--) {
@@ -20,7 +20,7 @@ void make(int height, int left, int right, char line[28], char level[28]) {
 		cout << level << " " << i << endl << line << endl;
 	}
 }
-//¿¤¸®º£ÀÌÅÍ µÎ°³;
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î°ï¿½;
 void make2(int height, int left, int right, int left2, int right2, char line[28], char level[28], char level2[28]) {
 	cout << line <<"\t" <<line << endl;
 	for (int i = height; i >= 1; i--) {
@@ -42,7 +42,7 @@ void make2(int height, int left, int right, int left2, int right2, char line[28]
 		else
 			level2[19] = *" ";
 		
-		if(i!=height/2)//È­»ìÇ¥ ¸¸µé±â
+		if(i!=height/2)//È­ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ï¿½
 			cout << level << " " << i << "\t";
 		else
 			cout << level << " " << i << " -> ";
@@ -57,15 +57,15 @@ int main() {
 	char level[] = { "#           #            #" };
 	char level2[] = { "#           #            #" };
 	int height, left, right;
-	cout << "³ôÀÌ, ¿ÞÂÊ À§Ä¡, ¿À¸¥ÂÊ À§Ä¡¸¦ ÀÔ·Â:";
+	cout << "ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ô·ï¿½:";
 	cin >> height >> left >> right;
 	system("cls");
 	make(height, left, right, line, level);
 	//--------------------------
 	int inp = 1, right2=right, left2=left;
 	
-	//ÃÖÃÊ 1È¸
-	cout << "ÇöÀç À§Ä¡: ";
+	//ï¿½ï¿½ï¿½ï¿½ 1È¸
+	cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡: ";
 	cin >> inp;
 	if (inp <= height) {
 		if (abs(inp - left) > abs(inp - right))
@@ -75,12 +75,12 @@ int main() {
 	}
 	system("cls");
 
-	//¹Ýº¹
+	//ï¿½Ýºï¿½
 	while (inp != 0) {
 		make2(height, left, right, left2, right2, line, level, level2);
 		right = right2;
 		left = left2;
-		cout << "ÇöÀç À§Ä¡: ";
+		cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡: ";
 		cin >> inp;
 		if (inp <= height) {
 			if (abs(inp - left) > abs(inp - right))

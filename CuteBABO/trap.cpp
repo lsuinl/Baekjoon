@@ -1,11 +1,11 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-#include <Windows.h>
+//#include <Windows.h>
 
 using namespace std;
 
-//Áö·Ú ¸¸µé±â
+//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 void make(int width, int height, int count, int** suin) {
 	srand(time(NULL));
 	int wlfhlx, wlfhly;
@@ -17,53 +17,53 @@ void make(int width, int height, int count, int** suin) {
 		suin[wlfhlx][wlfhly] = -10;
 	}
 }
-//ÁÖº¯ ¼ýÀÚ ¸¸µé±â
+//ï¿½Öºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 void number(int width, int height, int** suin) {
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
 			if (suin[j][i] <= -1) {
-				if (j - 1 < 0 && i - 1 < 0) {//¿ÞÂÊ À§ ¸ð¼­¸®(578
+				if (j - 1 < 0 && i - 1 < 0) {//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ð¼­¸ï¿½(578
 					suin[j + 1][i]++; 
 					suin[j + 1][i + 1]++;
 					suin[j][i + 1]++;
 				}
-				else if (j - 1 < 0 && i + 1 == height) {//¿ÞÂÊ ¾Æ·¡ ¸ð¼­¸®(235
+				else if (j - 1 < 0 && i + 1 == height) {//ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ ï¿½ð¼­¸ï¿½(235
 					suin[j][i - 1]++;
 					suin[j + 1][i - 1]++;
 					suin[j + 1][i]++;
 				}
-				else if (j + 1 == width && i - 1 < 0) {//¿À¸¥ÂÊ À§ ¸ð¼­¸®(467
+				else if (j + 1 == width && i - 1 < 0) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ð¼­¸ï¿½(467
 					suin[j][i + 1]++;
 					suin[j - 1][i]++;
 					suin[j - 1][i + 1]++;
 				}
-				else if (j + 1 == width && i + 1 == height) {//¿À¸¥ÂÊ ¾Æ·¡ ¸ð¼­¸®(124
+				else if (j + 1 == width && i + 1 == height) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ ï¿½ð¼­¸ï¿½(124
 					suin[j - 1][i]++;
 					suin[j - 1][i - 1]++;
 					suin[j][i - 1]++;
 				}
-				else if (j + 1 == width) {//¿À¸¥ÂÊ(12467
+				else if (j + 1 == width) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(12467
 					suin[j - 1][i]++;
 					suin[j - 1][i + 1]++;
 					suin[j - 1][i - 1]++;
 					suin[j][i - 1]++;
 					suin[j][i + 1]++;
 				}
-				else if (j - 1 < 0) {//¿ÞÂÊ(23578
+				else if (j - 1 < 0) {//ï¿½ï¿½ï¿½ï¿½(23578
 					suin[j + 1][i]++;
 					suin[j + 1][i + 1]++;
 					suin[j + 1][i - 1]++;
 					suin[j][i - 1]++;
 					suin[j][i + 1]++;
 				}
-				else if (i + 1 == height) {//¾Æ·¡ÂÊ(12345
+				else if (i + 1 == height) {//ï¿½Æ·ï¿½ï¿½ï¿½(12345
 					suin[j - 1][i - 1]++;
 					suin[j + 1][i - 1]++;
 					suin[j][i - 1]++;
 					suin[j - 1][i]++;
 					suin[j + 1][i]++;
 				}
-				else if (i - 1 < 0) {//À§ÂÊ(45678
+				else if (i - 1 < 0) {//ï¿½ï¿½ï¿½ï¿½(45678
 					suin[j - 1][i + 1]++;
 					suin[j + 1][i + 1]++;
 					suin[j][i + 1]++;
@@ -85,51 +85,51 @@ void number(int width, int height, int** suin) {
 	}
 }
 
-//ÀÌ¹ÌÁö ¸¸µé±â
+//ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 void dlalwl(int width, int height, int** image) {
-	for (int i = 0; i < width + 2; i++) //À§ÂÊ Å×µÎ¸®
+	for (int i = 0; i < width + 2; i++) //ï¿½ï¿½ï¿½ï¿½ ï¿½×µÎ¸ï¿½
 		cout << "#";
 	cout << endl;
 
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
 			if (j == 0)
-				cout << "#"; //¿ÞÂÊ Å×µÎ¸®
+				cout << "#"; //ï¿½ï¿½ï¿½ï¿½ ï¿½×µÎ¸ï¿½
 
-			if (image[j][i] <= -1)//Áö·Ú
+			if (image[j][i] <= -1)//ï¿½ï¿½ï¿½ï¿½
 				cout << "*";
-			else if (image[j][i] == 10) //ÀÔ·ÂÀü¿¡ ºóÄ­
+			else if (image[j][i] == 10) //ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä­
 				cout << " ";
-			else    //ÀÔ·ÂÇÑ ¼ýÀÚÄ­
+			else    //ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä­
 				cout << image[j][i];
 
-			if (j == height - 1)//¿À¸¥ÂÊ Å×µÎ¸®
+			if (j == height - 1)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×µÎ¸ï¿½
 				cout << '#';
 		}
 		cout << endl;
 	}
 
-	for (int i = 0; i < width + 2; i++) //¾Æ·¡ÂÊ Å×µÎ¸®
+	for (int i = 0; i < width + 2; i++) //ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½×µÎ¸ï¿½
 		cout << "#";
 	cout << endl;
 }
 
 //--------------------------
 int main() {
-	//ÀÔ·Â ¹Þ¾Æ¼­ ±Ô°Ý ¸¸µé±â
+	//ï¿½Ô·ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½Ô°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	int width, height, count;
 
-	cout << "Áö·Ú¹çÀÇ °¡·Î±æÀÌ, ¼¼·Î±æÀÌ, Áö·ÚÀÇ ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä." << endl;
+	cout << "ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½." << endl;
 	while (1) {
 		cin >> width >> height >> count;
 
 		if (count <= width * height && width > 0 && height > 0)
 			break;
 		else
-			cout << "´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä." << endl;
+			cout << "ï¿½Ù½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½." << endl;
 	}
 
-	//suin µ¿ÀûÇÒ´ç
+	//suin ï¿½ï¿½ï¿½ï¿½ï¿½Ò´ï¿½
 	int** suin = new int* [width];
 	for (int i = 0; i < width; i++) {
 		suin[i] = new int[height];
@@ -147,7 +147,7 @@ int main() {
 	int x, y;
 	int number = 0;
 
-	//image µ¿ÀûÇÒ´ç
+	//image ï¿½ï¿½ï¿½ï¿½ï¿½Ò´ï¿½
 	int** image = new int* [width];
 	for (int i = 0; i < width; i++) {
 		image[i] = new int[height];
@@ -162,23 +162,23 @@ int main() {
 
 	//-----------------------------------------------
 	
-	//Áö·ÚÃ£±â
+	//ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½
 	while (1) {
 		dlalwl(width, height, image);
-		cout << "ÁÂÇ¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä." << endl;
+		cout << "ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½." << endl;
 		cin >> x >> y;
 
-		if (x >= 0 && x < width && y >= 0 && y < height) { //ÁöÁ¤µÈ Å©±â ¾È¿¡¼­ ÀÔ·Â¹Þ±â
-			if (image[x][y] != 10) { //ÀÌ¹Ì È®ÀÎµÈ ÁÂÇ¥ÀÎÁö È®ÀÎ(°³¼öÃ¼Å©)
+		if (x >= 0 && x < width && y >= 0 && y < height) { //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ ï¿½Ô·Â¹Þ±ï¿½
+			if (image[x][y] != 10) { //ï¿½Ì¹ï¿½ È®ï¿½Îµï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Ã¼Å©)
 				number--;
 			}
 
 			image[x][y] = suin[x][y];
 			number++;
 
-			if (suin[x][y] <= -1) { //Áö·Ú
+			if (suin[x][y] <= -1) { //ï¿½ï¿½ï¿½ï¿½
 				system("cls");
-				for (int i=0; i < height; i++) { //¸ðµç Áö·Ú Ç¥ÇöÇÏ±â
+				for (int i=0; i < height; i++) { //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ï±ï¿½
 					for (int j=0; j < width; j++) {
 						if (suin[j][i] <= -1) {
 							image[j][i] = suin[j][i];
@@ -186,19 +186,19 @@ int main() {
 					}
 				}
 				dlalwl(width, height, image);
-				cout << "Áö·ÚÀÔ´Ï´Ù.";
+				cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.";
 				break;
 			}
-			if ((width * height - count) == number) { //³¡
+			if ((width * height - count) == number) { //ï¿½ï¿½
 				system("cls");
 				dlalwl(width, height, image);
-				cout << "ÃàÇÏÇÕ´Ï´Ù^^";
+				cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½^^";
 				break;
 			}
 
 		}
 		else
-			cout << "Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù" << endl;
+			cout << "ï¿½ß¸ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½" << endl;
 		system("cls");
 	}
 }
