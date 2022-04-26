@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <string.h>
  
-//³×ÀÌ¹öºÃÀ½  
+//ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½  
 
-//strlen()=¹®ÀÚ¿­ÀÇ ±æÀÌ¸¦ ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö, <string.h> ÇÊ¿ä  
+//strlen()=ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½, <string.h> ï¿½Ê¿ï¿½  
 //https://develop247.tistory.com/16
 
 int main(void){
-	int inp, i ,j, sum, score; //¤± 
+	int inp, i ,j, sum, score; //ï¿½ï¿½ 
 	char suin[80];
 	
 	scanf("%d", &inp);
