@@ -14,8 +14,9 @@ int main(){
 
         for(int j=0; j<n;j++)
         {
-            result*=m-j;
-            result/=1+j;
+            //조합. (nCr=n!/r!)
+            result*=m-j; //(n-r+1)(n-r+2)...n
+            result/=1+j; //r!
         }
         
         cout<<result<<endl;

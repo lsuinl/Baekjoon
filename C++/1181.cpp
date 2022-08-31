@@ -1,126 +1,31 @@
 #include <iostream>
-#include <string.h>
+#include <algorithm>
 
 using namespace std;
-//½Ã°£ÃÊ°ú ¤Ì¤Ì¤»¤»¤»¤»¤»¤»¤»¤»¤»
 
-void suin(int number, char word[20000][50]) {
-	//±æÀÌ¼øÀ¸·Î Á¤·Ä
-	int chart[50];
-	for (int i = 0; i < number; i++) {
-		for (int j = 0; j < number; j++) {
-			chart[i] = 1;
-			if (strlen(word[i]) > strlen(word[j]))
-				chart[i]++;
-		}
-	}
-	//»çÀü¼øÀ¸·Î
-	for (int i = 0; i < number; i++) {
-		for (int j = 0; j < number; j++) {
-			if (chart[i] == chart[j]) {
-				for (int z = 0; z < strlen(word[i]); z++) {
-					if (word[i][z] > word[j][z]) {
-						chart[i]++;
-						break;
-					}
-					else if (word[i][z] < word[j][z]) {
-						chart[j]++;
-						break;
-					}
-				}
-			}
-		}
-	}
-	//chart==1ºÎÅÍ Ãâ·Â..¤¾
-	for (int i = 0; i < number; i++) {
-		for (int j = 1; j <= number; j++) {
-			if (chart[i] == j)
-				cout << word[chart[i]];
-		}
-	}
+int suin(string a, string b) {
+	if(a.length() == b.length())
+		return a < b;
+	else
+		return a.length() <b.length();
 }
 
-
+string word[20000];
 int main() {
 	int number;
-	char word[20000][50];
+
 	cin >> number;
 	
-	for (int i = 0; i < number; i++) {
+	for (int i = 0; i < number; i++)
 		cin >> word[i];
+	
+
+	sort(word, word+number,suin);
+	for(int i=0;i<number;i++){
+		if(word[i]==word[i-1])
+			continue;
+		cout<<word[i]<<"\n";
+		//ì‹œê°„ì—ì„œëŠ” "\n"ì‚¬ìš©ì´ endlë³´ë‹¤ í›¨ì”¬ ìœ ë¦¬í•¨
 	}
-
-	suin(number, word);
-
 	return 0;
 }
-//¹æ¹ý 1
-/*
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-bool compareWith(string a, string b){
-  if(a.length() == b.length())
-    return a<b;
-  return a.length()<b.length();
-}
-
-int main(){
-  int N;
-  vector<string> vec;  
-  cin>>N;
-  for(int i=0; i<N; i++){
-    string str;
-    cin>>str;
-    if(find(vec.begin(), vec.end(), str) == vec.end())
-      vec.push_back(str);
-  }
-  sort(vec.begin(), vec.end(), compareWith);
-
-  for(int i=0; i<vec.size(); i++){
-    cout<<vec[i]<<'\n';
-  }
-}*/
-
-
-//¹æ¹ý 2
-
-/*
-#include <iostream>
-#include <algorithm>
-#include <string>
-
-using namespace std;
-
-int n;
-string a[20000];
-
-bool compare(string a, string b) {
-	if (a.length() < b.length()) {
-		return 1;
-	}
-	else if (b.length() < a.length()) {
-		return 0;
-	}
-	else {
-		return a < b;
-	}
-}
-
-int main() {
-	cin >> n;
-
-	for (int i = 0; i < n; i++) {
-		cin >> a[i];
-	}
-	sort(a, a + n, compare);
-
-	for (int i = 0; i < n; i++) {
-		if (i > 0 && a[i] == a[i - 1]) continue;
-		cout << a[i] << ' ';
-	}
-
-}*/

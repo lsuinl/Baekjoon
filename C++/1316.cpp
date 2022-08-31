@@ -1,6 +1,6 @@
 #include <iostream>
 //https://beginnerdeveloper-lit.tistory.com/104
-//¾î·Á¿ý
+
 using namespace std;
 
 int main() {
