@@ -1,5 +1,5 @@
 // #include <iostream>
-
+//DP
 // using namespace std;
 
 // int main(void){
@@ -21,9 +21,6 @@
 
 //     return 0;
 // }
-//최소 경우의 수를 구해야하므로 배열을 만들어서 따로 해야댐, 
-//DP(Dinamic Programming) 공부
-//다시보기
 
 #include <iostream>
 #include <vector>
