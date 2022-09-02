@@ -22,4 +22,3 @@ int main() {
 	}
 	cout << result;
 	}
-	 //¸¾¿¡¾Èµê

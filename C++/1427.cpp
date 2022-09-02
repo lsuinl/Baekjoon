@@ -1,21 +1,22 @@
 #include <iostream>
-
+#include <string.h>
 using namespace std;
 
-int suin(int a, int b) {
-    int r;
-    while (b != 0) {
-        r = a % b;
-        a = b;
-        b = r;
-    }
-    return a;
-}
-
 int main() {
-    int a, b;
-    cin >> a >> b;
+	char n[11];
+	cin >> n;
+	for (int j = 0; j < strlen(n); j++) {
+		for (int i = 0; i < strlen(n); i++) {
+			int z;
+			if (n[j] > n[i]) {
+				z = n[i];
+				n[i] = n[j];
+				n[j] = z;
+			}
+		}
+	}
 
-    cout << suin(a, b) << endl << (a * b) / suin(a, b);
-    return 0;
+	cout << n;
+
+	return 0;
 }
