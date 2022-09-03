@@ -1,13 +1,12 @@
 #include <iostream>
-//https://jaimemin.tistory.com/1567
 using namespace std;
 
 int main() {
-	int n, rkfh, tpfh;
+	int n, width, length;
 	cin >> n;
-	rkfh = n / 2 + 1;
-	tpfh = n - rkfh + 2;
-	cout << rkfh * tpfh;
+	width = n / 2 + 1;
+	length = n - length + 2;
+	cout << width * length;
 
 	return 0;
 }

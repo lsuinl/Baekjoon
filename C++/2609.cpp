@@ -1,45 +1,23 @@
 #include <iostream>
-#include <string> //to_string()ÇÔ¼ö
-#include <algorithm> //sort ÇÔ¼ö 
 
-//sort ÇÔ¼ö »ç¿ëÇØº¸±â
 using namespace std;
-/*
-int main() {
-    char n[11];
-    cin >> n;
-    for (int j = 0; j < strlen(n); j++) {
-        for (int i = 0; i < strlen(n); i++) {
-            int z;
-            if (n[j] > n[i]) {
-                z = n[i];
-                n[i] = n[j];
-                n[j] = z;
-            }
-        }
-    }
 
-    cout << n;
-
-    return 0;
-}*/
-
-bool compare(char a, char b) {
-    return a > b;
+int suin(int a, int b) {
+    //ìµœëŒ€ê³µì•½ìˆ˜
+	int r;
+	while (b != 0) {
+		r = a % b; //ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ r
+		a = b; //ì‘ì€ ìˆ˜ë¥¼ aë¡œ
+		b = r; //ë‚˜ë¨¸ì§€ë¥¼ bë¡œ
+	}
+	return a;
 }
 
 int main() {
-    string a;
-    int n;
-    cin >> n;
+	int a, b;
+	cin >> a >> b;
 
-    //nÀ» stringÇüÀ¸·Î º¯È¯ÇØ¼­ a¿¡ ÀúÀå
-    a = to_string(n);
-
-    //aÀÇ ½ÃÀÛºÎÅÍ ³¡±îÁö (compare·Î Âü°ÅÁşÆÇº°) ºñ±³ÇØ¼­ Á¤·Ä
-    //https://cocoon1787.tistory.com/189
-    //ÂüÀÌ¸é ¿ŞÂÊÀ¸·Î, (Âü=´õ Å« ¼ö)?????¸Â³ª
-    sort(a.begin(), a.end(), compare);
-
-    cout << a;
+    //a*b=ìµœëŒ€ê³µì•½ìˆ˜*ìµœì†Œê³µë°°ìˆ˜
+	cout << suin(a,b) << endl << (a*b)/suin(a,b);
+	return 0;
 }
