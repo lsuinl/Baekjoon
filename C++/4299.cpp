@@ -2,12 +2,13 @@
 #include <math.h>
 using namespace std;
 
-int main() {
-    int gkq, ck, a, b;
-    cin >> gkq >> ck;
-    a = (gkq + ck) / 2;
-    b = gkq - a;
-    if (gkq < ck || abs(a - b) != ck)
+int main()
+{
+    int sum, minus, a, b;
+    cin >> sum >> minus;
+    a = (sum + minus) / 2;
+    b = sum - a;
+    if (sum < minus || abs(a - b) != minus)
         cout << -1;
     else
         cout << max(a, b) << " " << min(a, b);

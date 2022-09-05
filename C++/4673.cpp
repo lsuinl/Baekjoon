@@ -18,7 +18,7 @@ int main() {
 
 	for (int i = 1; i <= 10000; i++) {
 		if (a[i] != 0)
-			cout << a[i] << endl;
+			cout << a[i] << "\n";
 	}
 
 	return 0;
