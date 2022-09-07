@@ -1,112 +1,49 @@
+// #include <iostream>
+// #include <utility>
+
+// using namespace std;
+
+// int main() {
+//     int num;
+//     pair<int,int> arr[50];
+//     cin >> num;
+//     for(int i = 0; i < num; i++)
+//         cin >> arr[i].first >> arr[i].second;
+//     for(int i = 0; i < num; i++)
+//     {
+//         int rank = 1;
+//         for(int j = 0; j < num; j++)
+//             if(arr[i].first < arr[j].first && arr[i].second < arr[j].second)
+//                 rank++;
+//         cout << rank << ' ';
+//     }
+// }
 #include <iostream>
-#include <utility>
 #include <vector>
-//±¸Á¶Ã¼, º¤ÅÍÀÇ È°¿ë https://blog.naver.com/yungzin98/222615915967
 
 using namespace std;
-//¹æ¹ı 1: ³»°¡ÇÑ°Å
-/*
-//ÀÔ·Â¹Ş°í, ºñ±³ÇØ¼­ Å« »ç¶÷ ¼ö Ä«¿îÆ®ÇÏ±â
-void countt(int number, int count[50]) {
+
+int main(){
+	int n;
+	cin>>n;
+	//ì‚¬ëŒìˆ˜ë§Œí¼ ë²¡í„°
+	//ì‚¬ëŒí•œëª…ë‹¹ 2ê°œ (ní–‰kì—´)
+	vector<vector<int> > people(n, vector<int>(3,1));
 	
-	int height[50], weight[50];
-	for (int i = 0; i < number; i++) {
-		cin >> weight[i] >> height[i];
+	for(int i=0;i<people.size();i++){
+		cin>>people[i][0]>>people[i][1];
 	}
-	
-	for (int j = 0; j < number; j++) {
-		for (int i = 0; i < number; i++) {
-			if (weight[j] < weight[i] && height[j] < height[i])
-				count[j]++;
-			else if (weight[j] == weight[i] && height[j] < height[i])
-				count[j]++;
-			else if (weight[j] < weight[i] && height[j] == height[i])
-				count[j]++;
+
+	for(int i=0;i<people.size();i++){
+		for(int j=0;j<people.size();j++){
+			if(people[i][0]<people[j][0] && people[i][1]<people[j][1])
+				people[i][2]++;
 		}
 	}
-}
-
-void result(int number, int count[50]) {
-	int result[50];
-	//Å« »ç¶÷ ¼ö°¡ ÀûÀ»¼ö·Ï µî¼ö°¡ ³ôÀ½. 
-	for (int j = 0; j < number; j++) {
-		result[j] = 1;
-		for (int i = 0; i < number; i++) {
-			if (count[j] > count[i])
-				result[j]++;
-		}
+	for(int i=0;i<people.size();i++){
+		cout<<people[i][2]<<" ";
 	}
-
-	//Ãâ·Â
-	for (int j = 0; j < number; j++)
-		cout << result[j]<<" ";
-}
-
-
-int main() {
-	int number, count[50]={0,};
-	cin >> number;
-
-	countt(number,count);
-	result(number, count);
-	return 0;
-
-}*/
-//¹æ¹ı2 utilityÅ¬·¡½º, pair
-/*
-int main() {
-	int num;
-	int rank = 1;
-	pair<int, int> arr[50];
-	cin >> num;
-	for (int i = 0; i < num; i++) {
-		cin >> arr[i].first >> arr[i].second;
-	}
-	for (int i = 0; i < num; i++) {
-		for (int j = 0; j < num; j++) {
-			if (arr[i].first < arr[j].first && arr[i].second)
-				rank++;
-			cout << rank << " ";
-			rank = 1;
-		}
-	}
-}*/
-
-//±¸Á¶Ã¼, º¤ÅÍ <vector>Å¬·¡½º
-struct person {
-public:
-	int height;
-	int weight;
-	int priority;
-	person(int a, int b, int c = 1) {
-		height = a;
-		weight = b;
-		priority = c;
-	}
-};
-
-vector<person> v;
-
-int main() {
-	int PersonNum;
-	cin >> PersonNum;
-	for (int i = 0; i < PersonNum; i++) {
-		int pHeight, pWeight;
-		cin >> pHeight >> pWeight;
-		person man(pHeight, pWeight);
-		v.push_back(man);
-	}
-	for (int i = 0; i < PersonNum; i++) {
-		for (int j = 0; j < PersonNum; j++) {
-			if ((v[i].height < v[j].height) && (v[i].weight < v[j].weight)) {
-				v[i].priority++;
-			}
-		}
-	}
-	for (int i = 0; i < PersonNum - 1; i++) {
-		cout << v[i].priority << ' ';
-	}
-	cout << v[PersonNum - 1].priority;
 
 	return 0;
 }
+
