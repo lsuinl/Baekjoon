@@ -1,15 +1,17 @@
 #include <iostream>
 #include <cstring>
-//#include <cstring> -> strcmp(s1,s2)==ºñ±³ÇØ¼­ s1ÀÌ ¾ÕÀÌ¸é À½¼ö, °°À¸¸é0, µÚ¸é¾ç¼ö¹ÝÈ¯
+//#include <cstring> -> strcmp(s1,s2)==ï¿½ï¿½ï¿½Ø¼ï¿½ s1ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0, ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½È¯
 using namespace std;
-int main() {
+int main()
+{
 	char name[20][13];
 	string suin;
 	int a;
 
 	cin >> a;
 	cin >> name[0];
-	for (int i = 1; i < a; i++) {
+	for (int i = 1; i < a; i++)
+	{
 		cin >> name[i];
 		int sttr = strcmp(name[i - 1], name[i]);
 		if (sttr < 0)
@@ -17,7 +19,8 @@ int main() {
 		else if (sttr > 0)
 			suin = "DECREASING";
 	}
-	for (int i = 1; i < a; i++) {
+	for (int i = 1; i < a; i++)
+	{
 		int sttr = strcmp(name[i - 1], name[i]);
 		if (suin == "INCREASING" && sttr > 0)
 			suin = "NEITHER";

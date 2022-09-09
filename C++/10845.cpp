@@ -1,6 +1,6 @@
 #include <iostream>
 #include <queue>
-
+//queue : 대기줄?
 using namespace std;
 
 int main(void) {
