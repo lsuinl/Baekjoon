@@ -2,24 +2,26 @@
 
 using namespace std;
 
-int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    int result=0;
-    int mushroom[10];
-    for(int i=0;i<10;i++){
-        cin>>mushroom[i];
-    }
-    for(int i=0;i<10;i++){
-        result+=mushroom[i];
-        if((result+mushroom[i+1])>=100){
-            result=abs(result-100)>abs(result+mushroom[i+1]-100)? result+mushroom[i+1]:result;
-            break;
+int main()
+{
+    int a, b, c, m, day = 24, p = 0, result = 0;
+    cin >> a >> b >> c >> m;
+
+    while (day != 0) //24시간 쓸 때까지 반복
+    {
+        if (p+a>m) //한시간 더 할 경우의 피로도가m을 넘기면..
+        {
+            p = p-c>0? p-c:0; 
+            day--;
+            continue;
+        }
+        else
+        {
+            day--;
+            result += b;
+            p += a;
         }
     }
-    
-    cout<<result;
-
+    cout << result;
     return 0;
 }
