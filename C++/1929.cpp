@@ -77,4 +77,3 @@ int main(void) {
 		if (primeNum[i]) cout<<i<<"\n";
 	}
 }
- 
