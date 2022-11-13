@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-
+#include <algorithm>
 using namespace std;
 #define MAX 1001
 
 int n,m,v;
 bool visited[MAX];
 vector<int> suin[MAX];
+queue<int> q;
 
 void visitreset(){
     for(int i=0;i<=n;i++){visited[i]=false;}
@@ -15,18 +16,18 @@ void visitreset(){
 
 
 void dfs(int v){
-    if(visited[v])
-        return;
+    if(visited[v]){return;}
     visited[v]=true;
     cout<<v<<" ";
     for(int i=0;i<suin[v].size();i++){
         int x=suin[v][i];
-        dfs(x);
+        if(!visited[x]){
+            dfs(x);
+        }
     }
 }
 
-void bfs(){
-    queue<int> q; //우선순위 큐, 오름차순정렬
+void bfs(){ 
     q.push(v);
     visited[v]=true;
     while(!q.empty()){
@@ -52,6 +53,10 @@ int main(){
         suin[a].push_back(b);
         suin[b].push_back(a);
     }
+    for(int i=1;i<=n;i++){
+        sort(suin[i].begin(),suin[i].end());
+    }
+
     visitreset();
     dfs(v);
     cout<<'\n';
