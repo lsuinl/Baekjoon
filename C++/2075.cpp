@@ -3,13 +3,13 @@
 #include <algorithm>
 
 using namespace std;
-
+//넘모 멋지다
 int main(){
     ios_base::sync_with_stdio(false); 
     cin.tie(0);
     cout.tie(0);
 
-    //내림차순
+    //오름차순
     priority_queue<int, vector<int>, greater<int>> q;
     int n;
 
