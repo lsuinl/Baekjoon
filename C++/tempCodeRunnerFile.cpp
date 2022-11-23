@@ -1,40 +1,77 @@
+
 #include <iostream>
 #include <algorithm>
-#include <queue>
+#include <cmath>
 
 using namespace std;
 
-int main(){
-    ios_base::sync_with_stdio(false); //내림차순정렬
-    cin.tie(0);
-    cout.tie(0);
-    priority_queue<int, vector<int>> q;
+int check[8001] = {
+    0,
+};
 
-    int n,vote,result=0;
+bool compare(int a, int b)
+{
+    a = a < 0 ? abs(a) + 4000 : a;
+    b = b < 0 ? abs(b) + 4000 : b;
+    return check[a] > check[b];
+}
 
-    cin>>n;
-    cin>>vote;
+int main()
+{
+    int n;
+    cin >> n;
 
-    int dasom=vote; //1번의 득표수
-    q.push(vote);
-    for(int i=1;i<n;i++){ //입력받아서 정렬하기
-        int vote;
-        cin>>vote;
-        q.push(vote);
+    int suin[n];
+    double san = 0;
+    int bin;
+    int min = 4001, max = -4001;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> suin[i];
+
+        san += suin[i];
+
+        max = max > suin[i] ? max : suin[i];
+        min = min > suin[i] ? suin[i] : min;
+
+        if (suin[i] < 0)
+            check[abs(suin[i]) + 4000]++;
+        else
+            check[suin[i]]++;
     }
 
-    int max=q.top(); //가장 큰 값 저장
+    // 산술평균
+    san = floor(san / n + 0.5) == -0 ? 0 : floor(san / n + 0.5);
+    //중앙값
+    sort(suin, suin + n);
+    int middle = suin[n / 2];
+    //최빈값
+    sort(suin, suin + n, compare);
 
-    while(q.size()>1 && dasom<=max){ //1번득표수가 더 많아지는 그날까지
-        max=q.top(); //가장 큰 수가 max에 저장
-        dasom+=1; //1번에 1추가
-        max-=1; //가장 큰 수에 -1
-        q.pop(); //가장 큰 수를 지우고,
-        q.push(max); //그 안에 가장 큰수-1을한 값을 넣어줌
-        result++; //횟수카운트
-    }
+    int a = suin[0] < 0 ? abs(suin[0]) + 4000 : suin[0]; //최빈값 1순위+최고낮은값
+    int b = a;
+    for (int i = 1; i < n; i++)
+    {
+        if (suin[0] != suin[i])
+        {
+            b = suin[i] < 0 ? abs(suin[i]) + 4000 : suin[i]; //최빈값 2순위&&a와 다른 값
+            break;
+        }
+    } 
+    if(check[a]==check[b])
+        bin=b>4000?(b-4000)*-1:b;
+    else
+        bin=a>4000?(a-4000)*-1:a;
 
-    cout<<result;
 
+    // 범위
+    int bound = max - min;
+    cout << san << "\n"
+        << middle << "\n"
+        << bin << "\n"
+        << bound;
     return 0;
 }
+
+
+
