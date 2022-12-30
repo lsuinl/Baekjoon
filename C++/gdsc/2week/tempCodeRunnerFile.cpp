@@ -10,10 +10,11 @@ int main(){
         int max=A>B?A:B;
         int min=A>B?B:A;
         int plus=max;
-        while(max%min!=0){
+        while(1){
+            if(max%min==0) break;
             max+=plus;
         }
-        cout<<max<<endl;
+        cout<<max;
     }
     return 0;
 }
