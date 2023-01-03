@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-
+//완
 using namespace std;
 
 int main()

@@ -60,25 +60,27 @@ int main()
 {
     // W=땅의 전체 가로길이 , H=땅의 전체 세로길이, T=오렌지 나무 개수, S=땅 크기
     int W, H, T, S;
-    set<int> xx;
-    set<int> yy;
-    int result = 0;
     cin >> W >> H >> T >> S;
 
     int xy[T][2];
-    for (int a = 0; a < T; a++)
+    set<int> xx;
+    set<int> yy;
+    for (int i = 0; i < T; i++)
     {
-        cin >> xy[a][0] >> xy[a][1];
-        xx.insert(xy[a][0]);
-        yy.insert(xy[a][1]);
+        cin >> xy[i][0] >> xy[i][1];
+        xx.insert(xy[i][0]);
+        yy.insert(xy[i][1]);
+        int len = yy.size() > xx.size() ? yy.size() : xx.size();
+        int result = 0;
 
-        for (int i : xx)
+        for(int i:xx)
         {
-            int maxx = i + S > W ? W : i + S; // x덧셈
-            for (int j : yy)
+            int maxx = i + S > W ? W : i + S;   // x덧셈
+            for (int j:yy)
             {
-                int plus = 0;
-                int maxy = j + S > H ? H : j + S; // y덧셈
+                int plus=0;
+                int maxy = j+ S > H ? H : j+ S; // y덧셈
+                result = 0;
                 for (int k = 0; k < T; k++)
                 {
                     // 2사분면
@@ -86,10 +88,10 @@ int main()
                         (j <= xy[k][1] && maxy >= xy[k][1]))
                         plus++;
                 }
-                result = result > plus ? result : plus;
+                    result = result > plus ? result : plus;
             }
+            cout << result;
         }
+        return 0;
     }
-    cout << result;
-    return 0;
 }
