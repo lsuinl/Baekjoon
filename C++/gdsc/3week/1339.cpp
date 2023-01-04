@@ -2,51 +2,57 @@
 #include <string>
 #include <vector>
 #include <math.h>
-//https://ongveloper.tistory.com/173
-//ㅜㅜ
+#include <set>
 
 using namespace std;
 
 int main()
 {
     int N, length = 0, result = 0, insert = 9;
-    int abc[27] = {
-        1,
-    }; // 0번째만 1로
+    int abc[27][2]={0,}; // 0번: insert넣을 공간 / 1번: 높은 수 구별할 때 쓸 공간
     cin >> N;
     vector<string> word;
-    
-    for (int i = 0; i < N; i++)//입력받기
+    set<int> suin;
+
+    for (int i = 0; i < N; i++) // 입력받기
     {
         string n;
         cin >> n;
         word.push_back(n);
         length = n.length() > length ? n.length() : length;
     }
-    
-    for (int i=0;i<word.size();i++) //부족한 길이는 골뱅이를 만들어줘요.
+
+    for (int i = 0; i < word.size(); i++) // 가장 높은 수(?)를 구별할수있게 만들어놓아요.
     {
-        int shor =  length - word[i].length();
-        while(shor!=0){
-            word[i].insert(word[i].begin(),'@');
-            shor--;
-        }
-    }
-    for(int i=0;i<length;i++){ //알파벳 숫자로 변형
-        for (int j=0;j<word.size();j++) {
-            if(abc[word[j][i]-64]==0){
-                abc[word[j][i]-64]=insert;
-                insert--;
-            }
+        for (int j = 0; j < word[i].size(); j++)
+        {
+            abc[word[i][j] - 64][1] += 1*pow(10, word[i].size()-j-1);
+            suin.insert(word[i][j] - 64);
         }
     }
 
-    abc[0]=0;
-    for(int i=0;i<length;i++){ //계산하기
-        for (auto w : word) {
-            result+=abc[w[i]-64]*pow(10,(length-i-1));
+    for (int i = 0; i < suin.size(); i++)
+    {
+        int max = 0;
+        int cmp = 0;
+        for(auto a : suin)
+        {
+            if (cmp < abc[a][1] && abc[a][0] == 0)
+            {
+                cmp = abc[a][1];
+                max = a;
+            }
+        }
+        abc[max][0] = insert;
+        insert--;
+    }
+    //최종 덧셈.
+    for(int i=0;i<word.size();i++){
+        for(int j=0;j<word[i].size();j++){
+            result+=abc[word[i][j]-64][0]*pow(10, word[i].size()-j-1);
         }
     }
-    cout<<result;
+
+    cout << result;
     return 0;
 }
