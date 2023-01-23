@@ -4,8 +4,6 @@
 
 using namespace std;
 
-vector<int> suin;
-
 // int findnumber(int number){
 //     int low=0, high=suin.size()-1;
 //     int mid = suin.size()/2;
@@ -24,16 +22,18 @@ vector<int> suin;
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
+    vector<int> suin;
     int N,number;
     cin>>N;
     for(int i=0;i<N;i++){
-        cin>>number;
-        suin.push_back(number);
+        cin>>number; 
+        suin.push_back(number);//값 넣기
     }
-    sort(suin.begin(),suin.end());
+    sort(suin.begin(),suin.end()); //벡터 오름차순 정렬
     cin>>N;
     for(int i=0;i<N;i++){
         cin>>number;
+        //이진탐색
         int result= binary_search(suin.begin(),suin.end(),number);
         cout<<result<<" ";
     }
