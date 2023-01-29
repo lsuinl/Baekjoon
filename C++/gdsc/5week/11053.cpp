@@ -31,7 +31,7 @@ int DP()
     if(N==1){
         return 1;
     }
-        int dp[1001];
+    int dp[1001];
     std::fill_n(dp, 1001, 1);
 
     int sol = 1;//결과
