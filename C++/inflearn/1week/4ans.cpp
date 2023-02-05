@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-
+#include <math.h>
 using namespace std;
 
 int n, res = 2147000000, can[2][21], ch[21];
@@ -18,7 +18,7 @@ void DFS(int L, int s) {
 			sumB+=can[1][B[i]];
 		}
         
-		res =min(res, abs(sumA - sumB));
+	//	res =min(res, abs(sumA - sumB)); 오류나서 잠간 주석처리했음
 	}
 	else {
 		for (int i = s; i < n; i++) {

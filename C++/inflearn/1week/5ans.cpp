@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <limits.h>
+#include <algorithm>
 
 using namespace std;
 struct Time{
@@ -16,7 +16,7 @@ struct Time{
 };
 
 int main(){
-	int n, m, r, a, b, c, answer=INT_MIN;
+	int n, m, r, a, b, c, answer=0;
 	cin>>n>>m>>r;
 	vector<Time> gugan;
 	vector<int> dy(m+1, 0);
