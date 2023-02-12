@@ -1,7 +1,7 @@
 #include <iostream>
 #include <queue>
 #include <cstring>
-
+//틀렸다
 using namespace std;
 
 int Size;
@@ -16,8 +16,9 @@ void move(int x, int y, int goalxy[2])
         while (!q.empty())
         {
             int xx = q.front().first, yy = q.front().second;
-            if(xx==goalxy[0]&&yy==goalxy[1]){
+            if(xx==goalxy[0]&&yy==goalxy[1]){ //목표위치에 도달하면 출력
                 cout<<result[goalxy[1]][goalxy[0]]-1<<'\n';
+                return;
             }
             q.pop();
             int dx[8] = {xx + 2, xx + 2, xx + 1, xx + 1, xx - 1, xx - 1, xx - 2, xx - 2};
