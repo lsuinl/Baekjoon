@@ -17,7 +17,9 @@ void DFS(int s, int e, string res){
 }
 int main(){
 	ios_base::sync_with_stdio(false);
-	//freopen("input.txt", "rt", stdin);
+	cin.tie(0);
+	cout.tie(0);
+
 	cin>>n;
 	DFS(0, 0, "");
 	cout<<cnt;

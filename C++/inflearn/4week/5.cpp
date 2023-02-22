@@ -5,6 +5,7 @@ using namespace std;
 void BFS(){
 }
 
+//잔디를 심은 곳:2, 맨땅:0, 바위:1
 int main(){
     int n;
     int map[31][31];

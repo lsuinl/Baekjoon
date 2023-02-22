@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
     int n;
-    long long t[35]={1,};
+    long long t[36]={1,};
     cin>>n;
     for(int i=0;i<=n;i++){
         for(int j=0;j<i;j++){

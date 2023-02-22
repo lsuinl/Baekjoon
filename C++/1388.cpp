@@ -69,7 +69,7 @@ void heightBFS(int y, int x)
 
 int main()
 {
-    memset(visited, 0, sizeof(visited)); // 위와 같음
+   // memset(visited, 0, sizeof(visited)); // 위와 같음
     cin >> n >> m;
     for (int i = 0; i < n; i++) //y
     {
