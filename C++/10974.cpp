@@ -24,7 +24,7 @@ void DFS(int number){
         }
     }
 }
-
+q
 int main(){
     cin>>n;
     DFS(0);
