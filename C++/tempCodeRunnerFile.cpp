@@ -4,34 +4,18 @@ using namespace std;
 
 int main(){
     int n,m;
-    cin>>m>>n;
-    char board[51][51];
-    int count, min=100;
-    for(int i=0;i<m;i++){
-        for(int j=0;j<n;j++){
-            cin>>board[i][j];
+    long long dp[1001][1001];
+    dp[1][2]=1;
+    dp[1][1]=1;
+    dp[2][1]=1;
+    cin>>n>>m;
+    for(int i=2;i<=n;i++){
+        for(int j=2;j<=m;j++){
+            if(i==2) dp[i-1][j]=1;
+            if(j==2) dp[i][j-1]=1;
+            dp[i][j]=(dp[i-1][j]+dp[i][j-1]+dp[i-1][j-1])%1000000007;
         }
     }
-
-    for(int a=0;a<=m-8;a++){
-        for(int b=0;b<=n-8;b++){
-            count=0;
-            for(int i=a;i<a+8;i++){
-                for(int j=b;j<b+8;j++){
-                    if(i%2==0){
-                        if(j%2==0)   count=board[i][j]=='W' ? count+1:count; //짝-짝=흰색
-                        else    count=board[i][j]=='B' ? count+1:count; //짝-홀=검은색
-                    }
-                    else{
-                        if(j%2==0) count=board[i][j]=='B' ? count+1:count; //홀-짝=검은색
-                        else count=board[i][j]=='W' ? count+1:count; //짝-홀=흰색
-                    }
-                }
-            }
-count=board[a][b]=='B'? (64-count): count;
-if(min>count) min = count;
-        }
-    }
-    cout<<min;
+    cout<<dp[n][m];
     return 0;
 }
