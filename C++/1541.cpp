@@ -15,8 +15,8 @@ int main(){
             minuscheck=true;
         }
         else if(maths[i]=='+'||maths[i]=='-'||i+1==maths.size()){
-            if(minuscheck==true)     minussum+=stoi(maths.substr(start,i));
-            else sum+=stoi(maths.substr(start,i));
+            if(minuscheck==true)     minussum+=stoi(maths.substr(start,i+1));
+            else sum+=stoi(maths.substr(start,i+1));
             start=i+1;
         }
 
