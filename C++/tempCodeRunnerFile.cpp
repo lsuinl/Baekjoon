@@ -1,29 +1,25 @@
 #include <iostream>
-
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 int main(){
-    int n;
+    int n,x,result=0;
+    vector<int> lists={};
     cin>>n;
-    int tri[n][n];
-    int result[n][n];
     for(int i=0;i<n;i++){
-        for(int j=0;j<i+1;j++){
-            cin>>tri[i][j];
+        int num;
+        cin>>num;
+        lists.push_back(num);
+    }
+    cin>>x;
+    for(int i=0;i<lists.size();i++){
+        if(find(lists.begin(), lists.end(), x-lists[i]) != lists.end()){
+            lists.erase(lists.begin()+i);
+            lists.erase(find(lists.begin(), lists.end(), x-lists[i]));
+            result++;
         }
     }
-    for(int i=0;i<n;i++){ //첫줄
-        result[n-1][i]=tri[n-1][i];
-    }
-
-    for(int i=n-2;i==0;i--){
-        for(int j=0;j<i;j++){
-             if(result[i+1][j]<result[i+1][j+1])
-                result[i][j]=tri[i][j]+result[i+1][j+1];
-            else
-                result[i][j]=tri[i][j]+result[i+1][j];
-        }
-        
-    }
+    cout<<result;
     return 0;
 }
