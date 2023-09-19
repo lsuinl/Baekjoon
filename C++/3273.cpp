@@ -15,11 +15,12 @@ int main(){
         lists.push_back(a);
         num[a]=true;
     }
+    sort(lists.begin(),lists.end());
     cin>>x;
-    for(int i=0;i<n;i++){
+    for(int i=0;i<(n/2+1);i++){
         if(num[x-lists[i]]==true)
             result++;
     }
-    cout<<result/2;
+    cout<<result;
     return 0;
 }
