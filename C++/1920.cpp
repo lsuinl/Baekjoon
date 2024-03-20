@@ -20,7 +20,7 @@ int main(){
     cin.tie(0);        
     int n,m, r;
     cin>>n;
-    int A[n];
+    int *A= new int[n];
     for(int i=0;i<n;i++)    
         cin>>A[i];
     sort(A,A+n);
