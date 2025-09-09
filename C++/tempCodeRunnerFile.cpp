@@ -1,0 +1,2 @@
+
+        cout<<minCost[i]<<" ";
