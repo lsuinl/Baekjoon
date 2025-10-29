@@ -2,29 +2,25 @@
 
 using namespace std;
 
-char map[1024][2048];
+char map[10000][10000];
 
 void star(int startY, int startX){
-    cout<<"함?";
+    //cout<<startY<<" "<<startX<<endl;
     map[startY][startX]='*';
-    map[startY-1][startX]='*';
-    map[startY+1][startX]='*';
-    for(int i=startX-2;i<startX+2;i++){
+    map[startY+1][startX-1]='*';
+    map[startY+1][startX+1]='*';
+    for(int i=startX-2;i<=startX+2;i++){
         map[startY+2][i]='*';
     }
 }
 
 void finds(int y, int x,int len){
-    //0,6
-    if(len<3)
+    if(len<=3)
         star(y,x);
     else{
-        //0,6
-        //3,2
-        //3,4
         finds(y,x,len/2);
-        finds(y+len/2,x-x/2,len/2);
-        finds(y+len/2,x+x/2,len/2);
+        finds(y+len/2,x-len/2,len/2);
+        finds(y+len/2,x+len/2,len/2);
     }
 }
 
@@ -36,7 +32,7 @@ int main(){
     int n;
     cin>>n;
     
-    fill(&map[0][0], &map[0][0] + n*n, ' ');
+    fill(&map[0][0], &map[0][0] + 10000*10000, ' ');
     
     finds(0,n-1,n);
     //최종 출력
