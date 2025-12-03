@@ -16,24 +16,16 @@ int main(){
         v[i]=a;
     }
 
-    stack<int> maxx;//9,7
+    int maxx=s.top();
     v[n-1]=-1;
     for(int i=n-2;i>=0;i--){
-        if(v[i]<s.top()){
+        if(v[i]<s.top())
             v[i]=s.top();
-            maxx.push(s.top());
-        }
-        else{
-            while(!maxx.empty()){
-                if(v[i]<maxx.top()){
-                    v[i]=maxx.top();
-                    break;
-                }
-                maxx.pop();
-            }
-            if(maxx.empty())
-                v[i]=-1;
-        }
+        else if(v[i]<maxx)
+            v[i]=maxx;
+        else
+            v[i]=-1;
+        maxx = s.top()>maxx?s.top():maxx;
         s.pop();
     }
     for(int i=0;i<n;i++){
